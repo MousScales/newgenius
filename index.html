@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genius</title>
+    <link rel="icon" type="image/png" href="darkgenius.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header compact">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="darkgenius.png" alt="Genius Logo" class="logo-image">
+                    <div class="logo-text-container">
+                        <h1 class="logo-text">Genius</h1>
+                        <span class="tagline">your new best friend</span>
+                    </div>
+                </div>
+                <div class="header-buttons">
+                    <button class="download-header-btn" id="downloadHeaderBtn">Download</button>
+                </div>
+            </div>
+        </header>
+        
+        <main class="main-content">
+            <div class="hero-section">
+                <h2 class="hero-title" id="typewriterText">Built to make you extraordinarily productive,<br>Genius is the best way to learn with AI.</h2>
+                
+                <div class="download-section" id="downloadSection">
+                    <a href="#" class="download-btn" id="downloadBtn">
+                        Download for Mac
+                        <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7,10 12,15 17,10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="screenshot-container">
+                <div class="computer-screen">
+                    <div class="webapp-window" id="webappWindow">
+                        <div class="browser-content">
+                            <div class="genius-dashboard-preview">
+                                <div class="preview-sidebar">
+                                    <div class="preview-sidebar-header">
+                                        <span class="preview-logo-text">Genius</span>
+                                    </div>
+                                    <div class="preview-nav">
+                                        <div class="preview-nav-item active">
+                                            <span class="preview-nav-icon">🏠</span>
+                                            <span class="preview-nav-text">Dashboard</span>
+                                        </div>
+                                        <div class="preview-nav-item">
+                                            <img src="darkgenius.png" alt="Genius" class="preview-nav-icon">
+                                            <span class="preview-nav-text">Chat with Genius</span>
+                                        </div>
+                                        <div class="preview-nav-item">
+                                            <span class="preview-nav-icon">📱</span>
+                                            <span class="preview-nav-text">Calculator</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="preview-main">
+                                    <div class="preview-header">
+                                        <button class="preview-menu-toggle">☰</button>
+                                        <div class="preview-header-spacer"></div>
+                                        <div class="preview-profile">
+                                            <span class="preview-profile-icon">👤</span>
+                                            <span class="preview-profile-name">User</span>
+                                        </div>
+                                    </div>
+                                    <div class="preview-content">
+                                        <div class="preview-classes-grid">
+                                            <div class="preview-class-card">
+                                                <div class="preview-class-image">
+                                                    <img src="math.jpg" alt="AP Calculus AB" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                                                </div>
+                                                <div class="preview-class-content">
+                                                    <h3 class="preview-class-title">AP Calculus AB</h3>
+                                                    <p class="preview-class-instructor">Dr. Smith</p>
+                                                    <div class="preview-class-meta">
+                                                        <span class="preview-meta-tag">AP</span>
+                                                        <span class="preview-meta-tag">Fall 2024</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="preview-class-card">
+                                                <div class="preview-class-image">
+                                                    <img src="physics.jpg" alt="AP Physics 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                                                </div>
+                                                <div class="preview-class-content">
+                                                    <h3 class="preview-class-title">AP Physics 1</h3>
+                                                    <p class="preview-class-instructor">Prof. Johnson</p>
+                                                    <div class="preview-class-meta">
+                                                        <span class="preview-meta-tag">Honors</span>
+                                                        <span class="preview-meta-tag">Fall 2024</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="preview-class-card">
+                                                <div class="preview-class-image">
+                                                    <img src="chemistry.jpg" alt="Honors Chemistry" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                                                </div>
+                                                <div class="preview-class-content">
+                                                    <h3 class="preview-class-title">Honors Chemistry</h3>
+                                                    <p class="preview-class-instructor">Dr. Brown</p>
+                                                    <div class="preview-class-meta">
+                                                        <span class="preview-meta-tag">Regular</span>
+                                                        <span class="preview-meta-tag">Fall 2024</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Document Editor Window -->
+                    <div class="webapp-window document-window" id="documentWindow" style="display: none;">
+                        <div class="browser-content">
+                            <div class="genius-document-preview">
+                                <div class="doc-preview-header">
+                                    <button class="doc-preview-back-btn" onclick="closeDocumentWindow()">←</button>
+                                    <input type="text" class="doc-preview-title" value="Why Genius?" readonly>
+                                    <div class="doc-preview-last-edited" id="lastEdited">Last edited</div>
+                                    <button class="doc-preview-save-btn">💾 Save</button>
+                                    <button class="doc-preview-status">Saved</button>
+                                    <button class="doc-preview-pdf-btn">📥 PDF</button>
+                                    <div class="doc-preview-stats">
+                                        <span id="wordCount">0 words</span>
+                                        <span>•</span>
+                                        <span id="charCount">0 characters</span>
+                                    </div>
+                                    <button class="doc-preview-humanize-btn">Humanize</button>
+                                    <button class="doc-preview-chat-btn">
+                                        <img src="darkgenius.png" alt="Genius AI" class="doc-chat-icon">
+                                    </button>
+                                </div>
+                                
+                                <div class="doc-preview-toolbar">
+                                    <div class="toolbar-group">
+                                        <select class="toolbar-select">
+                                            <option>Times New Roman</option>
+                                        </select>
+                                        <select class="toolbar-select">
+                                            <option>16</option>
+                                        </select>
+                                        <select class="toolbar-select">
+                                            <option>Normal Text</option>
+                                        </select>
+                                    </div>
+                                    <div class="toolbar-divider"></div>
+                                    <div class="toolbar-group">
+                                        <button class="toolbar-btn"><strong>B</strong></button>
+                                        <button class="toolbar-btn"><em>I</em></button>
+                                        <button class="toolbar-btn"><u>U</u></button>
+                                        <button class="toolbar-btn"><s>S</s></button>
+                                    </div>
+                                    <div class="toolbar-divider"></div>
+                                    <div class="toolbar-group">
+                                        <button class="toolbar-btn">•</button>
+                                        <button class="toolbar-btn">1.</button>
+                                        <button class="toolbar-btn">⇤</button>
+                                        <button class="toolbar-btn">⇥</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="doc-preview-content">
+                                    <div class="doc-page" id="documentContent">
+                                    </div>
+                                </div>
+                                
+                                
+                                <!-- Floating Genius Chat Bar -->
+                                <div class="floating-genius-chat-bar">
+                                    <img src="darkgenius.png" alt="Genius" class="floating-genius-icon">
+                                    <div class="floating-genius-text" id="floatingGeniusText">Edit document with genius</div>
+                                    <button class="floating-genius-button">📝</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </main>
+        
+        <footer class="footer">
+            <p>&copy; 2025 Genius. All rights reserved.</p>
+            <a href="https://instagram.com/thegenius.app" target="_blank" class="footer-instagram">Insta: @thegenius.app</a>
+        </footer>
+    </div>
+    
+        <script>
+            // Typewriter effect
+            function typeWriter() {
+                const text = "Built to make you extraordinarily productive, Genius is the best way to learn with AI.";
+                const element = document.getElementById('typewriterText');
+                let i = 0;
+                
+                element.innerHTML = '';
+                
+                function type() {
+                    if (i < text.length) {
+                        if (text.charAt(i) === ',') {
+                            element.innerHTML += text.charAt(i) + '<br>';
+                        } else {
+                            element.innerHTML += text.charAt(i);
+                        }
+                        i++;
+                        setTimeout(type, 50);
+                    }
+                }
+                
+                type();
+            }
+            
+            // Start typewriter effect when page loads
+            window.addEventListener('load', typeWriter);
+            
+            // Add click animation to download button
+            document.getElementById('downloadBtn').addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Add click animation
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
+                
+                // Detect Mac type and show appropriate download message
+                const isMac = navigator.platform.indexOf('Mac') > -1 || navigator.userAgent.indexOf('Mac') > -1;
+                const isSiliconMac = navigator.userAgent.indexOf('Mac') > -1 && navigator.userAgent.indexOf('Intel') === -1;
+                
+                if (isMac) {
+                    if (isSiliconMac) {
+                        // For Silicon Mac users (M1/M2/M3) - Ready for download link
+                        alert('Download for Silicon Mac (M1/M2/M3) - Link coming soon!');
+                        // TODO: Add Silicon Mac download link here
+                        // const link = document.createElement('a');
+                        // link.href = 'YOUR_SILICON_MAC_DOWNLOAD_LINK';
+                        // link.download = 'Genius-Silicon-Mac.dmg';
+                        // document.body.appendChild(link);
+                        // link.click();
+                        // document.body.removeChild(link);
+                    } else {
+                        // For Intel Mac users - Ready for download link
+                        alert('Download for Intel Mac - Link coming soon!');
+                        // TODO: Add Intel Mac download link here
+                        // const link = document.createElement('a');
+                        // link.href = 'YOUR_INTEL_MAC_DOWNLOAD_LINK';
+                        // link.download = 'Genius-Intel-Mac.dmg';
+                        // document.body.appendChild(link);
+                        // link.click();
+                        // document.body.removeChild(link);
+                    }
+                } else {
+                    // For non-Mac devices, show Mac download message
+                    alert('Download for Mac');
+                }
+            });
+            
+            // Add click functionality to header download button
+            document.getElementById('downloadHeaderBtn').addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Add click animation
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
+                
+                // Detect Mac type and show appropriate download message
+                const isMac = navigator.platform.indexOf('Mac') > -1 || navigator.userAgent.indexOf('Mac') > -1;
+                const isSiliconMac = navigator.userAgent.indexOf('Mac') > -1 && navigator.userAgent.indexOf('Intel') === -1;
+                
+                if (isMac) {
+                    if (isSiliconMac) {
+                        // For Silicon Mac users (M1/M2/M3) - Ready for download link
+                        alert('Download for Silicon Mac (M1/M2/M3) - Link coming soon!');
+                        // TODO: Add Silicon Mac download link here
+                        // const link = document.createElement('a');
+                        // link.href = 'YOUR_SILICON_MAC_DOWNLOAD_LINK';
+                        // link.download = 'Genius-Silicon-Mac.dmg';
+                        // document.body.appendChild(link);
+                        // link.click();
+                        // document.body.removeChild(link);
+                    } else {
+                        // For Intel Mac users - Ready for download link
+                        alert('Download for Intel Mac - Link coming soon!');
+                        // TODO: Add Intel Mac download link here
+                        // const link = document.createElement('a');
+                        // link.href = 'YOUR_INTEL_MAC_DOWNLOAD_LINK';
+                        // link.download = 'Genius-Intel-Mac.dmg';
+                        // document.body.appendChild(link);
+                        // link.click();
+                        // document.body.removeChild(link);
+                    }
+                } else {
+                    // For non-Mac devices, show Mac download message
+                    alert('Download for Mac');
+                }
+            });
+            
+            // Make webapp window draggable - DISABLED
+            function makeDraggable() {
+                // Dragging functionality removed
+                return;
+            }
+            
+            // Initialize dragging when page loads
+            window.addEventListener('load', makeDraggable);
+            
+            // Sidebar toggle functionality
+            function initializeSidebarToggle() {
+                const menuToggle = document.querySelector('.preview-menu-toggle');
+                const sidebar = document.querySelector('.preview-sidebar');
+                const mainContent = document.querySelector('.preview-main');
+                
+                if (menuToggle && sidebar && mainContent) {
+                    // Check if sidebar is already collapsed (from localStorage)
+                    const isCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
+                    if (isCollapsed) {
+                        sidebar.classList.add('collapsed');
+                        mainContent.classList.add('sidebar-collapsed');
+                    }
+                    
+                    menuToggle.addEventListener('click', function() {
+                        sidebar.classList.toggle('collapsed');
+                        mainContent.classList.toggle('sidebar-collapsed');
+                        
+                        // Save state to localStorage
+                        const collapsed = sidebar.classList.contains('collapsed');
+                        localStorage.setItem('sidebarCollapsed', collapsed.toString());
+                    });
+                }
+            }
+            
+            // Initialize sidebar toggle when page loads
+            window.addEventListener('load', initializeSidebarToggle);
+            
+            // Auto-open document window after delay
+            window.addEventListener('load', function() {
+                setTimeout(() => {
+                    openDocumentWindow();
+                    startTypingAnimations();
+                }, 3000); // 3 second delay
+            });
+            
+            // Start typing animations
+            function startTypingAnimations() {
+                // Start with floating bar typing
+                setTimeout(() => {
+                    typeFloatingBar();
+                }, 2000); // Wait 2 seconds after document opens
+            }
+            
+            // Type the floating bar text
+            function typeFloatingBar() {
+                const text = 'Write an essay on why i should use genius';
+                const element = document.getElementById('floatingGeniusText');
+                let i = 0;
+                
+                element.innerHTML = '';
+                
+                function type() {
+                    if (i < text.length) {
+                        element.innerHTML += text.charAt(i);
+                        i++;
+                        setTimeout(type, 50);
+                    } else {
+                        // After floating bar finishes, show cursor and start document typing
+                        element.innerHTML += '<span class="typing-cursor">|</span>';
+                        setTimeout(() => {
+                            typeDocument();
+                        }, 1000);
+                    }
+                }
+                
+                type();
+            }
+            
+            // Type the document content
+            function typeDocument() {
+                const essay = `**Why Choose Genius Over Other AI Systems: A Comprehensive Analysis**
+
+**Introduction**
+
+In the rapidly evolving landscape of artificial intelligence, students and educators face an overwhelming array of choices when selecting an AI-powered study assistant. While general-purpose AI chatbots like ChatGPT and Claude offer broad capabilities, (Genius) stands apart as a specialized academic platform designed exclusively for educational purposes. This essay explores the unique advantages that make (Genius) the superior choice for students seeking comprehensive, AI-powered study solutions.
+
+**Academic Specialization and Purpose-Built Design**
+
+Unlike general AI systems that attempt to serve multiple purposes, (Genius) is specifically engineered as a (helpful study assistant) that is (knowledgeable, encouraging, and educational). This specialization manifests in several critical ways. First, the AI maintains an educational focus in all interactions, ensuring that responses are not only accurate but also pedagogically sound. The system is programmed to explain complex concepts in simple terms, making it particularly valuable for students struggling with difficult subject matter.
+
+Furthermore, (Genius) demonstrates subject expertise across various academic disciplines, from complex physics equations to historical timelines. This breadth of knowledge, combined with an educational approach, creates an environment where students receive not just answers, but understanding. The AI's consistent maintenance of a (friendly, supportive, and educational tone) ensures that students feel encouraged rather than intimidated when seeking help.
+
+**Comprehensive Study Management Ecosystem**
+
+One of (Genius's) most significant advantages lies in its comprehensive study management system. Rather than functioning as a standalone chatbot, (Genius) provides a complete academic ecosystem. Students can (create and manage multiple classes) with organized folder structures, allowing for systematic organization of coursework across different subjects and semesters.
+
+The platform's (document management capabilities) enable students to upload and organize various study materials, including PDFs, lecture notes, and research papers. This integration transforms (Genius) from a simple Q&A tool into a centralized hub for all academic resources. Additionally, the system includes (study analytics) that track progress and performance over time, providing students with valuable insights into their learning patterns and areas for improvement.
+
+**Advanced AI-Powered Study Tools**
+
+(Genius) distinguishes itself through its sophisticated suite of AI-powered study tools that go far beyond basic text generation. The platform's (smart flashcard system) utilizes AI to generate flashcards with spaced repetition algorithms, optimizing memory retention through scientifically-proven learning techniques. This feature transforms passive reading into active recall, significantly improving long-term knowledge retention.
+
+The system's ability to (automatically generate comprehensive study guides) from uploaded documents represents a revolutionary approach to study material creation. Students can upload dense academic texts, and (Genius) will extract key concepts, create summaries, and generate study questions tailored to the specific content. This capability is particularly valuable for processing complex academic material and transforming it into digestible study content.
+
+**Document Analysis and Processing Capabilities**
+
+A particularly unique feature of (Genius) is its advanced (document analysis capabilities). When students upload any document, the AI instantly extracts key concepts, creates summaries, and generates study questions. This functionality is powered by OpenAI's Assistants API, which provides more contextual and accurate responses when working with specific documents.
+
+The platform also includes a (document humanization tool), an AI-powered feature that helps students make their writing more natural and human-like. This tool is particularly valuable for academic writing, where maintaining an authentic voice while ensuring clarity and professionalism is crucial.
+
+**Integrated AI Chat with Educational Focus**
+
+While (Genius) includes a ChatGPT-style interface, it is specifically tuned for academic assistance rather than general conversation. The AI chat integration maintains an educational focus, providing help with homework, assignments, research projects, and study strategies. The system can create personalized study plans and schedules, offering guidance on study techniques and time management.
+
+The chat functionality also supports (file upload integration), allowing students to ask questions about specific documents or materials they've uploaded. This contextual understanding enables more accurate and relevant responses compared to general-purpose AI systems that lack access to the student's specific academic materials.
+
+**Competitive Pricing and Value Proposition**
+
+(Genius) offers competitive pricing that makes advanced AI-powered study tools accessible to students. The platform provides two pricing tiers: a (monthly plan at $15 per month) and a (yearly plan at $120 per year), which represents a (33% savings) compared to the monthly option. This transparent pricing structure includes all features without hidden fees, making it an attractive option for budget-conscious students.
+
+**Privacy, Security, and Data Protection**
+
+In an era where data privacy is paramount, (Genius) implements (enterprise-grade security) measures to protect students' academic work and personal information. All data is encrypted and stored securely, with Firebase security rules ensuring user data isolation. This commitment to privacy is particularly important for students who may be working with sensitive research or personal academic information.
+
+**Personalized Learning Experience**
+
+One of (Genius's) most compelling features is its ability to provide a (personalized learning experience). The AI system learns individual study patterns, preferred learning methods, and academic goals, adapting its recommendations and content delivery accordingly. This personalization extends to difficulty level adjustments and content customization, ensuring that each student receives an optimized learning experience tailored to their specific needs.
+
+**Cross-Platform Accessibility and Synchronization**
+
+(Genius) ensures that students can access their study materials and continue their learning journey across all devices. The platform's (seamless cloud synchronization) allows students to start studying on their laptop, continue on their phone during commute, and finish on their tablet at home. This flexibility ensures that students never lose progress or miss study opportunities, regardless of their location or device.
+
+**Collaborative Learning Features**
+
+The platform includes (collaborative learning capabilities) that enable students to share study materials, work on group projects, and learn together in real-time. Students can create shared study groups, collaborate on flashcards, and benefit from collective knowledge while maintaining individual progress tracking. This social learning aspect enhances the educational experience and promotes peer-to-peer knowledge sharing.
+
+**Comparison with General-Purpose AI Systems**
+
+When compared to general-purpose AI systems like ChatGPT or Claude, (Genius) offers several distinct advantages. While other AIs are designed for broad applications, (Genius) is purpose-built for academic success. The platform's integration of study management tools, document processing capabilities, and educational focus creates a comprehensive solution that general AI systems cannot match.
+
+General AI systems lack the specialized features that make (Genius) valuable for students, such as flashcard generation, study guide creation, and academic progress tracking. Additionally, the educational tone and subject-specific expertise of (Genius) create a more supportive learning environment compared to the neutral, general-purpose responses of other AI systems.
+
+**Conclusion**
+
+(Genius) represents a paradigm shift in AI-powered educational tools, offering students a comprehensive, specialized platform that combines the power of modern artificial intelligence with purpose-built academic features. Unlike general-purpose AI systems, (Genius) provides a complete study ecosystem that includes class management, document processing, AI-powered study tools, and personalized learning experiences.
+
+The platform's academic specialization, comprehensive study management capabilities, advanced AI tools, and competitive pricing make it the superior choice for students seeking an AI-powered study assistant. By focusing exclusively on educational applications and providing specialized features that general AI systems cannot offer, (Genius) establishes itself as the premier choice for students who want more than just another chatbot – they want a complete digital study companion.
+
+For students serious about academic success, (Genius) offers the perfect combination of AI power, educational focus, and practical study tools that make learning more effective, organized, and engaging. The platform's commitment to student success, combined with its innovative features and competitive pricing, makes it the clear choice for anyone seeking to enhance their academic performance through AI-powered study assistance.`;
+
+                const element = document.getElementById('documentContent');
+                const wordCountElement = document.getElementById('wordCount');
+                const charCountElement = document.getElementById('charCount');
+                const floatingText = document.getElementById('floatingGeniusText');
+                const lastEditedElement = document.getElementById('lastEdited');
+                
+                // Clear content initially
+                element.innerHTML = '';
+                
+                // Start last edited timer
+                const startTime = new Date();
+                updateLastEdited(startTime);
+                
+                // Define headers
+                const headers = [
+                    'Why Choose Genius Over Other AI Systems: A Comprehensive Analysis',
+                    'Introduction',
+                    'Academic Specialization and Purpose-Built Design',
+                    'Comprehensive Study Management Ecosystem',
+                    'Advanced AI-Powered Study Tools',
+                    'Document Analysis and Processing Capabilities',
+                    'Integrated AI Chat with Educational Focus',
+                    'Competitive Pricing and Value Proposition',
+                    'Privacy, Security, and Data Protection',
+                    'Personalized Learning Experience',
+                    'Cross-Platform Accessibility and Synchronization',
+                    'Collaborative Learning Features',
+                    'Comparison with General-Purpose AI Systems',
+                    'Conclusion'
+                ];
+                
+                let currentHTML = '';
+                let i = 0;
+                
+                function updateCounts() {
+                    // Get text content without HTML tags and cursor
+                    let textContent = element.textContent || element.innerText || '';
+                    
+                    // Remove the typing cursor from count
+                    textContent = textContent.replace(/\|/g, '');
+                    
+                    // Count words (split by whitespace and filter empty strings)
+                    const words = textContent.trim().split(/\s+/).filter(word => word.length > 0).length;
+                    
+                    // Count characters (including spaces and punctuation)
+                    const characters = textContent.length;
+                    
+                    wordCountElement.textContent = `${words.toLocaleString()} words`;
+                    charCountElement.textContent = `${characters.toLocaleString()} characters`;
+                }
+                
+                function type() {
+                    if (i < essay.length) {
+                        const char = essay.charAt(i);
+                        
+                        if (char === '\n') {
+                            // Check if the current line is a header
+                            const lines = currentHTML.split('<br>');
+                            const lastLine = lines[lines.length - 1].trim();
+                            
+                            if (headers.includes(lastLine)) {
+                                // This is a header - replace with bold version
+                                lines[lines.length - 1] = `<h2>${lastLine}</h2>`;
+                                currentHTML = lines.join('<br>');
+                            } else {
+                                currentHTML += '<br>';
+                            }
+                        } else {
+                            currentHTML += char;
+                        }
+                        
+                        // Process bold formatting for markdown and parentheses
+                        currentHTML = processBoldFormatting(currentHTML);
+                        
+                        // Add cursor after current content
+                        element.innerHTML = currentHTML + '<span class="typing-cursor">|</span>';
+                        updateCounts();
+                        i++;
+                        setTimeout(type, 30);
+                    } else {
+                        // All content typed, show final cursor and stop thinking animation
+                        currentHTML = processBoldFormatting(currentHTML);
+                        element.innerHTML = currentHTML + '<span class="typing-cursor">|</span>';
+                        
+                        // Update counts one final time for accuracy
+                        setTimeout(() => {
+                            updateCounts();
+                        }, 100);
+                        
+                        stopThinkingAnimation();
+                    }
+                }
+                
+                // Function to process bold formatting
+                function processBoldFormatting(html) {
+                    // Process markdown bold formatting (**text**)
+                    html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                    
+                    // Process parentheses bold formatting ((text)) - remove parentheses
+                    html = html.replace(/\(([^)]+)\)/g, '<strong>$1</strong>');
+                    
+                    return html;
+                }
+                
+                // Sequence: Show thinking animation, then start typing after delay
+                showThinkingAnimation();
+                
+                // Start typing after thinking animation delay
+                setTimeout(() => {
+                    stopThinkingAnimation();
+                    setTimeout(type, 500); // Small delay before typing starts
+                }, 2000); // 2 seconds of thinking animation
+            }
+            
+            // Update last edited time
+            function updateLastEdited(startTime) {
+                const lastEditedElement = document.getElementById('lastEdited');
+                
+                function updateTime() {
+                    const now = new Date();
+                    const diffMs = now - startTime;
+                    const diffSeconds = Math.floor(diffMs / 1000);
+                    const diffMinutes = Math.floor(diffSeconds / 60);
+                    const diffHours = Math.floor(diffMinutes / 60);
+                    
+                    let timeText;
+                    if (diffSeconds < 10) {
+                        timeText = 'just now';
+                    } else if (diffSeconds < 60) {
+                        timeText = `${diffSeconds}s ago`;
+                    } else if (diffMinutes < 60) {
+                        timeText = `${diffMinutes}m ago`;
+                    } else {
+                        timeText = `${diffHours}h ago`;
+                    }
+                    
+                    lastEditedElement.textContent = `Last edited ${timeText}`;
+                }
+                
+                // Update immediately
+                updateTime();
+                
+                // Update every second
+                const interval = setInterval(updateTime, 1000);
+                
+                // Store interval for cleanup
+                lastEditedElement.updateInterval = interval;
+            }
+            
+            // Show thinking animation
+            function showThinkingAnimation() {
+                const floatingText = document.getElementById('floatingGeniusText');
+                const floatingBar = document.querySelector('.floating-genius-chat-bar');
+                const editButton = floatingBar.querySelector('.floating-genius-button');
+                
+                // Hide the edit button and show thinking text
+                editButton.style.display = 'none';
+                
+                // Center the thinking text
+                floatingText.style.textAlign = 'center';
+                floatingText.style.width = '100%';
+                floatingText.style.justifyContent = 'center';
+                
+                let dots = 0;
+                
+                function animateThinking() {
+                    const thinkingText = 'Genius is thinking' + '.'.repeat(dots % 4);
+                    floatingText.innerHTML = thinkingText;
+                    dots++;
+                }
+                
+                // Start animation
+                floatingText.thinkingInterval = setInterval(animateThinking, 500);
+                animateThinking(); // Show immediately
+            }
+            
+            // Stop thinking animation
+            function stopThinkingAnimation() {
+                const floatingText = document.getElementById('floatingGeniusText');
+                const floatingBar = document.querySelector('.floating-genius-chat-bar');
+                const editButton = floatingBar.querySelector('.floating-genius-button');
+                
+                if (floatingText.thinkingInterval) {
+                    clearInterval(floatingText.thinkingInterval);
+                    floatingText.thinkingInterval = null;
+                }
+                
+                // Show the edit button again and restore text
+                editButton.style.display = 'flex';
+                
+                // Restore text alignment
+                floatingText.style.textAlign = 'left';
+                floatingText.style.width = 'auto';
+                floatingText.style.justifyContent = 'flex-start';
+                floatingText.innerHTML = 'Edit document with genius';
+            }
+            
+            // Document window functions
+            function openDocumentWindow() {
+                console.log('Opening document window...');
+                const documentWindow = document.getElementById('documentWindow');
+                if (documentWindow) {
+                    documentWindow.style.display = 'flex';
+                    makeDraggableDocument();
+                    console.log('Document window opened successfully');
+                } else {
+                    console.error('Document window element not found');
+                }
+            }
+            
+            function closeDocumentWindow() {
+                const documentWindow = document.getElementById('documentWindow');
+                documentWindow.style.display = 'none';
+            }
+            
+            
+            // Make document window draggable - DISABLED
+            function makeDraggableDocument() {
+                // Dragging functionality removed
+                return;
+            }
+        </script>
+</body>
+</html>
