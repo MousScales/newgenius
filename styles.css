@@ -1173,6 +1173,13 @@ body {
     gap: 8px;
 }
 
+.footer-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
 .footer-instagram {
     color: #ffffff;
     text-decoration: none;
@@ -1182,6 +1189,19 @@ body {
 }
 
 .footer-instagram:hover {
+    opacity: 1;
+    color: #ffffff;
+}
+
+.footer-founded {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.8rem;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.footer-founded:hover {
     opacity: 1;
     color: #ffffff;
 }
@@ -1547,6 +1567,11 @@ body {
     .download-header-btn {
         padding: 0.4rem 1.2rem;
         font-size: 0.85rem;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 8px;
     }
     
     .hero-section {
