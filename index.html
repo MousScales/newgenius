@@ -7,6 +7,12 @@
     <link rel="icon" type="image/png" href="darkgenius.png">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="https://va.vercel-scripts.com/v1/script.debug.js"></script>
 </head>
 <body>
     <div class="container">
@@ -229,6 +235,14 @@
             document.getElementById('downloadBtn').addEventListener('click', function(e) {
                 e.preventDefault();
                 
+                // Track button click
+                if (window.va) {
+                    window.va('track', 'download_button_click', {
+                        button_type: 'main_download',
+                        location: 'hero_section'
+                    });
+                }
+                
                 // Add click animation
                 this.style.transform = 'scale(0.95)';
                 setTimeout(() => {
@@ -241,6 +255,13 @@
                 
                 if (isMac) {
                     if (isSiliconMac) {
+                        // Track Silicon Mac download attempt
+                        if (window.va) {
+                            window.va('track', 'download_attempt', {
+                                platform: 'silicon_mac',
+                                button_type: 'main_download'
+                            });
+                        }
                         // For Silicon Mac users (M1/M2/M3) - Ready for download link
                         alert('Download for Silicon Mac (M1/M2/M3) - Link coming soon!');
                         // TODO: Add Silicon Mac download link here
@@ -251,6 +272,13 @@
                         // link.click();
                         // document.body.removeChild(link);
                     } else {
+                        // Track Intel Mac download attempt
+                        if (window.va) {
+                            window.va('track', 'download_attempt', {
+                                platform: 'intel_mac',
+                                button_type: 'main_download'
+                            });
+                        }
                         // For Intel Mac users - Ready for download link
                         alert('Download for Intel Mac - Link coming soon!');
                         // TODO: Add Intel Mac download link here
@@ -262,6 +290,13 @@
                         // document.body.removeChild(link);
                     }
                 } else {
+                    // Track non-Mac download attempt
+                    if (window.va) {
+                        window.va('track', 'download_attempt', {
+                            platform: 'non_mac',
+                            button_type: 'main_download'
+                        });
+                    }
                     // For non-Mac devices, show Mac download message
                     alert('Download for Mac');
                 }
@@ -271,6 +306,14 @@
             document.getElementById('downloadHeaderBtn').addEventListener('click', function(e) {
                 e.preventDefault();
                 
+                // Track button click
+                if (window.va) {
+                    window.va('track', 'download_button_click', {
+                        button_type: 'header_download',
+                        location: 'header'
+                    });
+                }
+                
                 // Add click animation
                 this.style.transform = 'scale(0.95)';
                 setTimeout(() => {
@@ -283,6 +326,13 @@
                 
                 if (isMac) {
                     if (isSiliconMac) {
+                        // Track Silicon Mac download attempt
+                        if (window.va) {
+                            window.va('track', 'download_attempt', {
+                                platform: 'silicon_mac',
+                                button_type: 'header_download'
+                            });
+                        }
                         // For Silicon Mac users (M1/M2/M3) - Ready for download link
                         alert('Download for Silicon Mac (M1/M2/M3) - Link coming soon!');
                         // TODO: Add Silicon Mac download link here
@@ -293,6 +343,13 @@
                         // link.click();
                         // document.body.removeChild(link);
                     } else {
+                        // Track Intel Mac download attempt
+                        if (window.va) {
+                            window.va('track', 'download_attempt', {
+                                platform: 'intel_mac',
+                                button_type: 'header_download'
+                            });
+                        }
                         // For Intel Mac users - Ready for download link
                         alert('Download for Intel Mac - Link coming soon!');
                         // TODO: Add Intel Mac download link here
@@ -304,6 +361,13 @@
                         // document.body.removeChild(link);
                     }
                 } else {
+                    // Track non-Mac download attempt
+                    if (window.va) {
+                        window.va('track', 'download_attempt', {
+                            platform: 'non_mac',
+                            button_type: 'header_download'
+                        });
+                    }
                     // For non-Mac devices, show Mac download message
                     alert('Download for Mac');
                 }
@@ -354,6 +418,46 @@
                 }, 3000); // 3 second delay
             });
             
+            // Add floating genius button click handler
+            window.addEventListener('load', function() {
+                const floatingButton = document.querySelector('.floating-genius-button');
+                if (floatingButton) {
+                    floatingButton.addEventListener('click', function() {
+                        // Track floating button click
+                        if (window.va) {
+                            window.va('track', 'floating_button_click', {
+                                button_type: 'genius_edit',
+                                location: 'floating_bar'
+                            });
+                        }
+                        
+                        const documentWindow = document.querySelector('.document-window');
+                        const floatingBar = document.querySelector('.floating-genius-chat-bar');
+                        
+                        if (documentWindow.style.display === 'none' || documentWindow.style.display === '') {
+                            // Track document window opening
+                            trackDocumentInteraction('document_window_opened');
+                            
+                            // Show document window
+                            documentWindow.style.display = 'block';
+                            floatingBar.style.display = 'flex';
+                            
+                            // Start typing animation
+                            setTimeout(() => {
+                                typeDocument();
+                            }, 500);
+                        } else {
+                            // Track document window closing
+                            trackDocumentInteraction('document_window_closed');
+                            
+                            // Hide document window
+                            documentWindow.style.display = 'none';
+                            floatingBar.style.display = 'none';
+                        }
+                    });
+                }
+            });
+            
             // Start typing animations
             function startTypingAnimations() {
                 // Start with floating bar typing
@@ -385,6 +489,16 @@
                 }
                 
                 type();
+            }
+            
+            // Track document editor interactions
+            function trackDocumentInteraction(action, details = {}) {
+                if (window.va) {
+                    window.va('track', 'document_interaction', {
+                        action: action,
+                        ...details
+                    });
+                }
             }
             
             // Type the document content
@@ -543,6 +657,12 @@ For students serious about academic success, (Genius) offers the perfect combina
                         currentHTML = processBoldFormatting(currentHTML);
                         element.innerHTML = currentHTML + '<span class="typing-cursor">|</span>';
                         
+                        // Track typing completion
+                        trackDocumentInteraction('typing_completed', {
+                            word_count: element.textContent.split(/\s+/).filter(word => word.length > 0).length,
+                            character_count: element.textContent.length
+                        });
+                        
                         // Update counts one final time for accuracy
                         setTimeout(() => {
                             updateCounts();
@@ -610,6 +730,9 @@ For students serious about academic success, (Genius) offers the perfect combina
             
             // Show thinking animation
             function showThinkingAnimation() {
+                // Track thinking animation start
+                trackDocumentInteraction('thinking_animation_started');
+                
                 const floatingText = document.getElementById('floatingGeniusText');
                 const floatingBar = document.querySelector('.floating-genius-chat-bar');
                 const editButton = floatingBar.querySelector('.floating-genius-button');
@@ -637,6 +760,9 @@ For students serious about academic success, (Genius) offers the perfect combina
             
             // Stop thinking animation
             function stopThinkingAnimation() {
+                // Track thinking animation end
+                trackDocumentInteraction('thinking_animation_ended');
+                
                 const floatingText = document.getElementById('floatingGeniusText');
                 const floatingBar = document.querySelector('.floating-genius-chat-bar');
                 const editButton = floatingBar.querySelector('.floating-genius-button');
