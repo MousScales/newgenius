@@ -13,6 +13,14 @@
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
     <script defer src="https://va.vercel-scripts.com/v1/script.js"></script>
+    <script>
+        // Track page view for static site
+        window.addEventListener('load', function() {
+            if (window.va) {
+                window.va('track', 'page_view');
+            }
+        });
+    </script>
 </head>
 <body>
     <div class="container">
@@ -233,16 +241,6 @@
             
             // Start typewriter effect when page loads
             window.addEventListener('load', typeWriter);
-            
-            // Track page view
-            window.addEventListener('load', function() {
-                if (window.va) {
-                    window.va('track', 'page_view', {
-                        page: 'home',
-                        title: 'Genius - AI Study Assistant'
-                    });
-                }
-            });
             
             // Add click animation to download button
             document.getElementById('downloadBtn').addEventListener('click', function(e) {
