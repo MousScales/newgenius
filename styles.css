@@ -1536,22 +1536,44 @@ body {
 
 @media (max-width: 768px) {
     .container {
-        padding: 0 15px;
+        padding: 0;
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+    
+    .main-content {
+        padding: 2rem 0;
+    }
+    
+    .header {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        padding: 1rem 0;
     }
     
     .header-content {
         padding: 0 15px;
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
         gap: 1rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .header-buttons {
+        margin-left: auto;
     }
     
     .logo-section {
         justify-content: flex-start;
-        margin-left: -30px;
+        margin-left: 0;
+        flex: 1;
     }
     
     .logo-image {
         height: 30px;
+        width: 30px;
     }
     
     .logo-text {
@@ -1561,6 +1583,7 @@ body {
     
     .header-buttons {
         gap: 0.75rem;
+        flex-shrink: 0;
     }
     
     .sign-in-btn,
@@ -1569,20 +1592,40 @@ body {
         font-size: 0.85rem;
     }
     
+    .footer {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        padding: 2rem 0;
+    }
+    
     .footer-links {
         flex-direction: column;
         gap: 8px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
     }
     
     .hero-section {
-        height: 100px;
+        height: auto;
         margin-bottom: 0.5rem;
-        margin-left: -125px;
+        margin-left: 0;
+        text-align: left;
+        max-width: 100%;
+        padding: 0 15px 0 50px;
+        min-height: 80px;
     }
     
     .hero-title {
-        font-size: 1.6rem;
-        line-height: 1.3;
+        font-size: 1.4rem;
+        line-height: 1.2;
+    }
+    
+    .download-section {
+        display: block;
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+        text-align: left;
     }
     
     .download-btn {
@@ -1593,34 +1636,39 @@ body {
     .screenshot-container {
         height: 600px;
         margin-top: 0.5rem;
-        margin-left: -100px;
+        margin-left: 0;
+        padding: 0 15px;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     .computer-screen {
         height: 600px;
-        width: calc(100% + 200px);
-        margin-right: -200px;
+        width: 100%;
+        margin-right: 0;
         padding: 15px;
+        box-sizing: border-box;
     }
     
     .webapp-window {
-        width: 90%;
-        height: 60%;
-        top: 30px;
-        left: 30px;
-        min-width: 300px;
-        min-height: 250px;
-    }
-    
-    .document-window {
         width: 95%;
         height: 70%;
         top: 20px;
-        left: 20px;
-        right: auto;
+        left: 10px;
+        right: 10px;
+        min-width: 280px;
+        min-height: 200px;
+    }
+    
+    .document-window {
+        width: 98%;
+        height: 80%;
+        top: 10px;
+        left: 5px;
+        right: 5px;
         bottom: auto;
-        min-width: 350px;
-        min-height: 300px;
+        min-width: 280px;
+        min-height: 200px;
     }
     
     .doc-preview-sidebar {
@@ -1682,15 +1730,108 @@ body {
 }
 
 @media (max-width: 600px) {
+    .container {
+        padding: 0;
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+    
+    .main-content {
+        padding: 1.5rem 0;
+    }
+    
+    .header {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        padding: 0.8rem 0;
+    }
+    
+    .header-content {
+        padding: 0 10px;
+        gap: 0.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        justify-content: flex-start;
+    }
+    
+    .header-buttons {
+        margin-left: auto;
+    }
+    
+    .footer {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        padding: 1.5rem 0;
+    }
+    
+    .footer-links {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 10px;
+    }
+    
+    .logo-section {
+        gap: 0.25rem;
+    }
+    
+    .logo-image {
+        height: 28px;
+        width: 28px;
+    }
+    
+    .logo-text {
+        font-size: 1.2rem;
+    }
+    
+    .tagline {
+        font-size: 0.75rem;
+    }
+    
+    .download-header-btn {
+        padding: 0.35rem 1rem;
+        font-size: 0.8rem;
+    }
+    
+    .hero-section {
+        text-align: left;
+        margin-left: 0;
+        padding: 0 10px 0 40px;
+        max-width: 100%;
+        height: auto;
+        min-height: 70px;
+    }
+    
+    .hero-title {
+        font-size: 1.1rem;
+        line-height: 1.1;
+    }
+    
+    .download-section {
+        display: block;
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+        text-align: left;
+    }
+    
     .document-window {
         width: 98%;
-        height: 80%;
+        height: 85%;
+        top: 5px;
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+        min-width: 250px;
+        min-height: 180px;
+    }
+    
+    .webapp-window {
+        width: 98%;
+        height: 75%;
         top: 10px;
-        left: 10px;
-        right: 10px;
-        bottom: 10px;
-        min-width: 280px;
-        min-height: 250px;
+        left: 5px;
+        right: 5px;
+        min-width: 250px;
+        min-height: 180px;
     }
     
     .floating-genius-chat-bar {
@@ -1733,8 +1874,87 @@ body {
 }
 
 @media (max-width: 480px) {
+    .container {
+        padding: 0;
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+    
+    .main-content {
+        padding: 1rem 0;
+    }
+    
+    .header {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        padding: 0.6rem 0;
+    }
+    
+    .header-content {
+        padding: 0 8px;
+        gap: 0.25rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        justify-content: flex-start;
+    }
+    
+    .header-buttons {
+        margin-left: auto;
+    }
+    
+    .footer {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        padding: 1.2rem 0;
+    }
+    
+    .footer-links {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 8px;
+    }
+    
+    .logo-section {
+        gap: 0.2rem;
+    }
+    
+    .logo-image {
+        height: 24px;
+        width: 24px;
+    }
+    
+    .logo-text {
+        font-size: 1.1rem;
+    }
+    
+    .tagline {
+        font-size: 0.7rem;
+    }
+    
+    .download-header-btn {
+        padding: 0.3rem 0.8rem;
+        font-size: 0.75rem;
+    }
+    
+    .hero-section {
+        text-align: left;
+        margin-left: 0;
+        padding: 0 8px 0 35px;
+        max-width: 100%;
+        height: auto;
+        min-height: 60px;
+    }
+    
     .hero-title {
-        font-size: 1.4rem;
+        font-size: 1rem;
+        line-height: 1.1;
+    }
+    
+    .download-section {
+        display: block;
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+        text-align: left;
     }
     
     .logo h1 {
@@ -1748,13 +1968,23 @@ body {
     
     .document-window {
         width: 100%;
-        height: 85%;
+        height: 90%;
+        top: 2px;
+        left: 2px;
+        right: 2px;
+        bottom: 2px;
+        min-width: 220px;
+        min-height: 150px;
+    }
+    
+    .webapp-window {
+        width: 100%;
+        height: 80%;
         top: 5px;
-        left: 5px;
-        right: 5px;
-        bottom: 5px;
-        min-width: 250px;
-        min-height: 200px;
+        left: 2px;
+        right: 2px;
+        min-width: 220px;
+        min-height: 150px;
     }
     
     .floating-genius-chat-bar {
